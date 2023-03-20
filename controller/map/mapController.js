@@ -14,7 +14,7 @@ function array_chuncks(arr,size=23) {
     
     let data;
     
-    let stationChunks = array_chuncks(await stationModel.find().limit(5))
+    let stationChunks = array_chuncks(await stationModel.find())
     
     let nearestStation = {value:777777777777777777777777777777777,destination:''};
     for (let k = 0; k < stationChunks.length; k++) {
