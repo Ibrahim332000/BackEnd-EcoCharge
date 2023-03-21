@@ -13,6 +13,11 @@ function array_chuncks(arr,size=23) {
     
     
     let data;
+        var token = [
+          "pk.eyJ1IjoiaXRpcHJvamVjdCIsImEiOiJjbGVsY2E5czQwdTNjM3ZwZzNycmtnMjJxIn0.F7H8MLWhaWVkVhKlD-WlZw",
+          "pk.eyJ1IjoiZWNvY2hhcmdlIiwiYSI6ImNsZmk5dHd5ZTI2N28zcXBnZnhlNjZpMnYifQ.XyDv-FEtP_Duf95-GFqkig",
+        ];
+
     
     let stationChunks = array_chuncks(await stationModel.find())
     
@@ -24,8 +29,8 @@ function array_chuncks(arr,size=23) {
         
         url+= ';'+(stationChunks[k][j].longitude)+','+(stationChunks[k][j].latitude)
     }
-    
-    url+= '?sources=0&access_token=pk.eyJ1IjoiaXRpcHJvamVjdCIsImEiOiJjbGVsY2E5czQwdTNjM3ZwZzNycmtnMjJxIn0.F7H8MLWhaWVkVhKlD-WlZw'
+        
+    url += "?sources=0&access_token=" + token[Math.floor(Math.random() * 2)];
    await  axios.get(url).then(res=>{
       data  = res.data
       data.destinations.shift()
